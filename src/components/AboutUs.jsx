@@ -12,14 +12,13 @@ export default function AboutUs() {
     >
       <Grid
         container
-        spacing={4}
+        spacing={6}
         alignItems="center"
         justifyContent="space-between"
-        sx={{ maxWidth: "1200px", mx: "auto" , direction: { xs: "column", md: "row" }}}
       >
         {/* Title */}
-        <Grid item xs={12}>
-          <Typography
+        <Grid size={12}>
+            <Typography
             variant="h4"
             fontWeight="bold"
             color="primary"
@@ -31,52 +30,44 @@ export default function AboutUs() {
         </Grid>
 
         {/* LEFT SIDE - TEXT */}
-        <Grid item xs={12} md={6}>
-          <Typography
-            variant="body1"
-            mb={3}
-            sx={{ color: "#555", textAlign: { xs: "center", md: "left" } }}
-          >
+        <Grid size={{ xs: 12, md: 6 }}
+        textAlign={{ xs: "center", md: "left" }}>
+          <Typography variant="body1" mb={3} sx={{ color: "#555" }}>
             We are a passionate team dedicated to creating meaningful experiences.
             Our goal is to connect people through creative event planning and smart
             digital tools. Whether it's a wedding, concert, or corporate event, we
             focus on quality, innovation, and unforgettable moments.
           </Typography>
 
-          <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
-            <Typography variant="body2" mb={1}>
-              • Experienced in event planning & tech integration
-            </Typography>
-            <Typography variant="body2" mb={1}>
-              • Custom-built booking and rental systems
-            </Typography>
-            <Typography variant="body2" mb={3}>
-              • Professional, creative, and detail-focused
-            </Typography>
+          <Typography variant="body2" mb={1}>
+            • Experienced in event planning & tech integration
+          </Typography>
+          <Typography variant="body2" mb={1}>
+            • Custom-built booking and rental systems
+          </Typography>
+          <Typography variant="body2" mb={3}>
+            • Professional, creative, and detail-focused
+          </Typography>
 
-            <Button variant="contained" color="primary">
-              Learn More
-            </Button>
-          </Box>
+          <Button variant="contained" color="primary">
+            Learn More
+          </Button>
         </Grid>
 
         {/* RIGHT SIDE - IMAGE */}
-        <Grid item xs={12} md={6}>
-          <Box
-            component="img"
+        <Grid size={{ xs: 12, md: 6 }}>
+          <img
             src={aboutImage}
             alt="About us"
-            sx={{
+            style={{
               width: "100%",
               borderRadius: "16px",
               boxShadow: "0 6px 14px rgba(0,0,0,0.15)",
               display: "block",
-              mx: "auto",
             }}
           />
         </Grid>
       </Grid>
     </Box>
-
   );
 }
