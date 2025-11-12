@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import ServiceCard from "../components/ServiceCard";
+import AboutUs from "../components/AboutUs";
 
 export default function Home() {
   const services = [
@@ -37,6 +38,8 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
+
+      <AboutUs />
 
       <Footer />
     </Box>
