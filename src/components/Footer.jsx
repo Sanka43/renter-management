@@ -61,17 +61,17 @@ export default function Footer() {
           >
             Contact
           </Typography>
-          <Typography variant="body2" sx={{ color: "#ccd5ae" }}>
+          <Typography variant="body2" sx={{ color: "#ccd5ae", mb: 1 }}>
             Hali Ela, Badulla, Sri Lanka
           </Typography>
-          <Typography variant="body2" sx={{ color: "#ccd5ae" }}>
+          <Typography variant="body2" sx={{ color: "#ccd5ae", mb: 1  }}>
             +94 71 862 8191
           </Typography>
-          <Typography variant="body2" sx={{ color: "#ccd5ae" }}>
+          <Typography variant="body2" sx={{ color: "#ccd5ae", mb: 1  }}>
             lumoraevents0@gmail.com
           </Typography>
 
-          <Box sx={{ mt: 2 }}>
+          <Box sx={{ mt: 0 }}>
             <IconButton href="#" color="inherit">
               <Facebook />
             </IconButton>

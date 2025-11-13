@@ -9,6 +9,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import aboutImage from "../assets/about.png";
 
 export default function AboutUs() {
@@ -16,6 +17,24 @@ export default function AboutUs() {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // Motion variants
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
 
   return (
     <Box
@@ -25,104 +44,114 @@ export default function AboutUs() {
         py: { xs: 6, md: 10 },
       }}
     >
-      <Grid
-        container
-        spacing={6}
-        alignItems="center"
-        justifyContent="space-between"
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={titleVariants}
       >
-        {/* Title */}
-        <Grid size={12}>
+        <Grid container spacing={6} alignItems="center" justifyContent="space-between">
+          <Grid item xs={12}>
             <Typography
-            variant="h4"
-            fontWeight="bold"
-            color="primary"
-            gutterBottom
-            textAlign={{ xs: "center", md: "left" }}
-            sx={{ mb: 0 }}
-          >
-            About Us
-          </Typography>
+              variant="h4"
+              fontWeight="bold"
+              color="primary"
+              gutterBottom
+              textAlign={{ xs: "center", md: "left" }}
+              sx={{ mb: 0 }}
+            >
+              About Us
+            </Typography>
+          </Grid>
         </Grid>
+      </motion.div>
 
-        {/* LEFT SIDE - TEXT */}
-        <Grid size={{ xs: 12, md: 6 }}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+      >
+        <Grid container spacing={6} alignItems="center" justifyContent="space-between">
+          {/* LEFT SIDE - TEXT */}
+          <Grid size={{ xs: 12, md: 6,}}
         textAlign={{ xs: "center", md: "left" }}>
-          <Typography variant="body1" mb={4} sx={{ color: "#555", textAlign: "justify" }}>
-            LUMORA Events, founded in 2025 in Hali Ela, is a privately owned event management
-             startup that blends modern creativity with Sri Lankan cultural heritage. The company
-              organizes festivals, corporate functions, social gatherings, and entertainment programs,
-               while also offering event equipment rentals. With a focus on professionalism, 
-               creativity, and community connection, LUMORA aims to support small businesses, 
-               promote young talent, and strengthen the country’s entertainment industry.
+            <motion.div variants={itemVariants}>
+              <Typography variant="body1" mb={4} sx={{ color: "#555", textAlign: "justify" }}>
+                LUMORA Events, founded in 2025 in Hali Ela, is a privately owned event management
+                startup that blends modern creativity with Sri Lankan cultural heritage. The company
+                organizes festivals, corporate functions, social gatherings, and entertainment programs,
+                while also offering event equipment rentals. With a focus on professionalism,
+                creativity, and community connection, LUMORA aims to support small businesses,
+                promote young talent, and strengthen the country’s entertainment industry.
+              </Typography>
 
-          </Typography>
+              <Typography variant="body2" mb={1}>
+                • Experienced in event planning & tech integration
+              </Typography>
+              <Typography variant="body2" mb={1}>
+                • Custom-built booking and rental systems
+              </Typography>
+              <Typography variant="body2" mb={3}>
+                • Professional, creative, and detail-focused
+              </Typography>
 
-          <Typography variant="body2" mb={1}>
-            • Experienced in event planning & tech integration
-          </Typography>
-          <Typography variant="body2" mb={1}>
-            • Custom-built booking and rental systems
-          </Typography>
-          <Typography variant="body2" mb={3}>
-            • Professional, creative, and detail-focused
-          </Typography>
+              <Button variant="contained" color="primary" onClick={handleOpen}>
+                Learn More
+              </Button>
+            </motion.div>
+          </Grid>
 
-          <Button variant="contained" color="primary" onClick={handleOpen}>
-            Learn More
-          </Button>
+          {/* RIGHT SIDE - IMAGE */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <motion.div variants={itemVariants}>
+              <img
+                src={aboutImage}
+                alt="About us"
+                style={{
+                  width: "100%",
+                  borderRadius: "16px",
+                  boxShadow: "0 6px 14px rgba(0,0,0,0.15)",
+                  display: "block",
+                }}
+              />
+            </motion.div>
+          </Grid>
         </Grid>
-
-        {/* RIGHT SIDE - IMAGE */}
-        <Grid size={{ xs: 12, md: 6 }}>
-          <img
-            src={aboutImage}
-            alt="About us"
-            style={{
-              width: "100%",
-              borderRadius: "16px",
-              boxShadow: "0 6px 14px rgba(0,0,0,0.15)",
-              display: "block",
-            }}
-          />
-        </Grid>
-      </Grid>
+      </motion.div>
 
       {/* POPUP DIALOG */}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        fullWidth
-        maxWidth="md"
-      >
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
         <DialogTitle
           sx={{ fontSize: "4vh", fontWeight: "bold", color: "primary.main", textAlign: "center" }}
         >
           More About LUMORA
         </DialogTitle>
         <DialogContent dividers>
-          <Typography variant="body1" sx={{ mb: 2, color: "#444", textAlign: "justify"}} >
-            Founded in 2025 and based in Hali Ela, LUMORA Events is a privately owned event management 
-            startup specializing in reimagining entertainment experiences that began in 2012. The company 
-            was established with the goal of planning creative, well-organized and culturally vibrant 
+          <Typography variant="body1" sx={{ mb: 2, color: "#444", textAlign: "justify" }}>
+            Founded in 2025 and based in Hali Ela, LUMORA Events is a privately owned event management
+            startup specializing in reimagining entertainment experiences that began in 2012. The company
+            was established with the goal of planning creative, well-organized and culturally vibrant
             events that connect people and inspire community spirit.
-            <br/>
-            <br/>
-            LUMORA Events plans and executes a variety of projects including Event Equipment Rent, 
-            festivals, corporate events, social gatherings and entertainment programs. Each event is 
+            <br />
+            <br />
+            LUMORA Events plans and executes a variety of projects including Event Equipment Rent,
+            festivals, corporate events, social gatherings and entertainment programs. Each event is
             managed with a strong focus on creativity, professionalism and attention to detail.
-            <br/>
-            <br/>
-            The company’s core strength is combining modern event concepts with local cultural elements 
+            <br />
+            <br />
+            The company’s core strength is combining modern event concepts with local cultural elements
             – LUMORA’s goal is to create unforgettable and meaningful experiences.
           </Typography>
 
-          <Typography variant="h6"
+          <Typography
+            variant="h6"
             fontWeight="bold"
             color="primary"
             gutterBottom
             textAlign={{ xs: "center", md: "center" }}
-            sx={{ mb: 0 }}>
+            sx={{ mb: 0 }}
+          >
             Mission
           </Typography>
 
@@ -130,12 +159,14 @@ export default function AboutUs() {
             “To create unique event experiences that blend entertainment, culture, and community engagement.”
           </Typography>
 
-          <Typography variant="h6"
+          <Typography
+            variant="h6"
             fontWeight="bold"
             color="primary"
             gutterBottom
             textAlign={{ xs: "center", md: "center" }}
-            sx={{ mb: 0 }}>
+            sx={{ mb: 0 }}
+          >
             Vision
           </Typography>
 
