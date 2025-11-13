@@ -48,11 +48,14 @@ export default function AboutUs() {
         {/* LEFT SIDE - TEXT */}
         <Grid size={{ xs: 12, md: 6 }}
         textAlign={{ xs: "center", md: "left" }}>
-          <Typography variant="body1" mb={4} sx={{ color: "#555" }}>
-            We are a passionate team dedicated to creating meaningful experiences.
-            Our goal is to connect people through creative event planning and smart
-            digital tools. Whether it's a wedding, concert, or corporate event, we
-            focus on quality, innovation, and unforgettable moments.
+          <Typography variant="body1" mb={4} sx={{ color: "#555", textAlign: "justify" }}>
+            LUMORA Events, founded in 2025 in Hali Ela, is a privately owned event management
+             startup that blends modern creativity with Sri Lankan cultural heritage. The company
+              organizes festivals, corporate functions, social gatherings, and entertainment programs,
+               while also offering event equipment rentals. With a focus on professionalism, 
+               creativity, and community connection, LUMORA aims to support small businesses, 
+               promote young talent, and strengthen the country’s entertainment industry.
+
           </Typography>
 
           <Typography variant="body2" mb={1}>
