@@ -1,0 +1,5 @@
+Founded in 2025 and based in Badulla, LUMORA Events is a privately owned event management startup specializing entertainment experiences. The company was established with the goal of designing creative, well-organized, and culturally vibrant events that connect people and inspire community spirit.
+
+LUMORA Events plans and executes a range of projects, including festivals, corporate functions, social gatherings, and entertainment programs. Every event is managed with a strong focus on creativity, professionalism, and attention to detail.
+
+The company’s core strength lies in combining modern event concepts with local cultural elements—creating experiences that are both memorable and meaningful. By working closely with sponsors, vendors, and local authorities, LUMORA aims to uplift small businesses, promote youth talent, and contribute to the growth of Sri Lanka’s entertainment industry.
