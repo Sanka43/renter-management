@@ -258,9 +258,8 @@ export default function AddOrder() {
               display: "flex",
               flexDirection: { xs: "column", md: "column" },
               gap: 2,
-              mt: { xs: 2, md: 4 },
               py: { xs: 0.5, md: 1.2 },
-              width: { xs: 200,md:300git 
+              width: { xs: 200,md:300, },
               fontWeight: 600,
               fontSize: { xs: "0.9rem", md: "1rem" }  
             }}
@@ -268,19 +267,29 @@ export default function AddOrder() {
             <Button
               variant="outlined"
               sx={{ 
-                width: { xs: "100%", md: "auto" },
-                alignItems: "center"
-              }}
-              onClick={() => setStep(1)}
+                ml: { xs: 5.5, md: 4 },
+                py: { xs: 0.5, md: 1.2 },
+                alignItems: "center",
+                width: { xs: "100%", md: "100%" },
+                fontWeight: 600,
+                fontSize: { xs: "0.9rem", md: "1rem" }
+                }}
+                onClick={() => setStep(1)}
+              
             >
               Back
             </Button>
 
             <Button
               variant="contained"
-              sx={{ width: { xs: "100%", md: "auto" } }}
-              disabled={billItems.length === 0}
-              onClick={() => setStep(3)}
+              sx={{  
+                ml: { xs: 5.5, md: 4 },
+                py: { xs: 0.5, md: 1.2 },
+                width: { xs: "100%", md: "100%" },
+                fontWeight: 600,
+                fontSize: { xs: "0.9rem", md: "1rem" }}}
+                disabled={billItems.length === 0}
+                onClick={() => setStep(3)}
             >
               Next
             </Button>
@@ -313,44 +322,51 @@ export default function AddOrder() {
             Select Dates
           </Typography>
 
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                type="date"
-                label="Pickup Date"
-                InputLabelProps={{ shrink: true }}
-                name="pickup"
-                fullWidth
-                value={dates.pickup}
-                onChange={handleDateChange}
-                sx={{
-                  bgcolor: "#fff",
-                  borderRadius: 1
-                }}
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                type="date"
-                label="Return Date"
-                InputLabelProps={{ shrink: true }}
-                name="return"
-                fullWidth
-                value={dates.return}
-                onChange={handleDateChange}
-                sx={{
-                  bgcolor: "#fff",
-                  borderRadius: 1
-                }}
-              />
-            </Grid>
+          <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              type="date"
+              label="Pickup Date"
+              InputLabelProps={{ shrink: true }}
+              name="pickup"
+              fullWidth
+              value={dates.pickup}
+              onChange={handleDateChange}
+              sx={{
+                bgcolor: "rgba(255, 255, 255, 0.25)",
+                // p: { xs: 2, sm: 3, md: 5 },
+                ml: { xs: 3, md: 0 },
+                borderRadius: 2,
+                input: { color: "#fff" },
+                "& .MuiInputLabel-root": { color: "#fff" },
+              }}
+            />
           </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              type="date"
+              label="Return Date"
+              InputLabelProps={{ shrink: true }}
+              name="return"
+              fullWidth
+              value={dates.return}
+              onChange={handleDateChange}
+              sx={{
+                bgcolor: "rgba(255, 255, 255, 0.25)",
+                // p: { xs: 2, md: 5 },
+                ml: { xs: 3, md: 0 },
+                borderRadius: 2,
+                input: { color: "#fff" },
+                "& .MuiInputLabel-root": { color: "#fff" },
+              }}
+            />
+          </Grid>
+        </Grid>
 
           <Box
             sx={{
               mt: { xs: 3, md: 4 },
-              display: "flex",
+              // display: "flex",
               flexDirection: { xs: "column", md: "row" },
               gap: 2
             }}
@@ -358,7 +374,11 @@ export default function AddOrder() {
             <Button
               variant="outlined"
               sx={{
-                width: { xs: "100%", md: "auto" }
+                mb: { xs: 1, md: 2 },
+                alignItems: "center",
+                width: { xs: "70%", md: "70%" },
+                fontWeight: 600,
+                fontSize: { xs: "0.9rem", md: "1rem" }
               }}
               onClick={() => setStep(2)}
             >
@@ -367,8 +387,17 @@ export default function AddOrder() {
 
             <Button
               variant="contained"
+              // color="primary"
               sx={{
-                width: { xs: "100%", md: "auto" }
+                bgcolor: "#008000FF",
+                "&:hover": {},
+                "&.Mui-disabled": {
+                  bgcolor: "#FF00E",
+                },
+                alignItems: "center",
+                width: { xs: "70%", md: "70%" },
+                fontWeight: 600,
+                fontSize: { xs: "0.9rem", md: "1rem" }
               }}
               disabled={!dates.pickup || !dates.return}
               onClick={() => setStep(4)}
