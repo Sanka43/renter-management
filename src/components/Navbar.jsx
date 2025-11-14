@@ -31,8 +31,8 @@ export default function Navbar() {
 
   return (
     <>
-      <AppBar position="sticky">
-        <Toolbar sx={{ justifyContent: "center", position: "relative" }}>
+      <AppBar position="sticky" color="primary">
+        <Toolbar sx={{ justifyContent: "center", position: "relative"}}>
           {/* Desktop buttons in center */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
             {navItems.map((item) => (

@@ -1,13 +1,19 @@
 import { Box, Typography, Button } from "@mui/material";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import heroImage from "../assets/dsdsds.png";
 
 export default function HeroSection() {
+  const navigate = useNavigate(); // Hook to navigate programmatically
+
+  const handleGetStarted = () => {
+    navigate("/add-order"); // Navigate to the Add Order page
+  };
+
   return (
     <Box
       sx={{
         minHeight: { xs: "70vh", md: "100vh" },
-        width: "100vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -106,6 +112,7 @@ export default function HeroSection() {
           <Button
             variant="contained"
             size="large"
+            onClick={handleGetStarted} // Navigate on click
             sx={{
               bgcolor: "#ff4d6d",
               color: "#fff",

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import theme from "../theme";
 import {
   Box,
   Grid,
@@ -11,6 +12,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import aboutImage from "../assets/about.png";
+// import createTheme from "@mui/material/styles/createTheme";
 
 export default function AboutUs() {
   const [open, setOpen] = useState(false);
@@ -42,6 +44,7 @@ export default function AboutUs() {
         backgroundColor: "#f5f7fa",
         px: { xs: 3, md: 8 },
         py: { xs: 6, md: 10 },
+        color: "primary",
       }}
     >
       <motion.div
@@ -86,13 +89,13 @@ export default function AboutUs() {
                 promote young talent, and strengthen the country’s entertainment industry.
               </Typography>
 
-              <Typography variant="body2" mb={1}>
+              <Typography variant="body2" mb={1} color="#555">
                 • Experienced in event planning & tech integration
               </Typography>
-              <Typography variant="body2" mb={1}>
+              <Typography variant="body2" mb={1} color="#555">
                 • Custom-built booking and rental systems
               </Typography>
-              <Typography variant="body2" mb={3}>
+              <Typography variant="body2" mb={3} color="#555">
                 • Professional, creative, and detail-focused
               </Typography>
 
@@ -129,10 +132,10 @@ export default function AboutUs() {
         </DialogTitle>
         <DialogContent dividers>
           <Typography variant="body1" sx={{ mb: 2, color: "#444", textAlign: "justify" }}>
-            Founded in 2025 and based in Hali Ela, LUMORA Events is a privately owned event management
-            startup specializing in reimagining entertainment experiences that began in 2012. The company
-            was established with the goal of planning creative, well-organized and culturally vibrant
-            events that connect people and inspire community spirit.
+            Founded in 2025 and based in Hali Ela, LUMORA Events is a privately owned event management 
+            startup specializing in reimagining the institution of "sanka uthsawa banda" that began 
+            in 2012. The company was established with the aim of planning creative, well-organized 
+            and culturally vibrant events that connect people and inspire community spirit.
             <br />
             <br />
             LUMORA Events plans and executes a variety of projects including Event Equipment Rent,

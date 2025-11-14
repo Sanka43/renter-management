@@ -7,7 +7,8 @@ export default function ServiceCard({ title, desc }) {
       boxShadow: 3, 
       height: "100%", 
       transition: "0.3s", 
-      "&:hover": { boxShadow: 6 } 
+      "&:hover": { boxShadow: 6 }, 
+      color: "#0D1B2AFF"
       }}>
       <CardContent>
         <Typography variant="h6" fontWeight={600} mb={1}>

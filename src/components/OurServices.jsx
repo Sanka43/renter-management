@@ -41,6 +41,7 @@ export default function OurServices() {
             textAlign={{ xs: "center", md: "left" }}
             fontWeight={600}
             mb={4}
+            color="primary"
           >
             Our Services
           </Typography>
@@ -54,7 +55,7 @@ export default function OurServices() {
         >
           <Grid container spacing={3} justifyContent="center">
             {services.map((service) => (
-              <Grid item xs={12} sm={6} md={4} key={service.id}>
+              <Grid item xs={12} sm={6} md={4} key={service.id} color= "#0D1B2AFF">
                 <motion.div variants={cardVariants}>
                   <ServiceCard title={service.title} desc={service.desc} />
                 </motion.div>

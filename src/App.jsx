@@ -1,15 +1,23 @@
-// src/App.jsx
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "./theme";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import HeroSection from "./components/HeroSection";
+import AddOrder from "./pages/AddOrder";
 import Home from "./pages/Home";
+import { ThemeProvider} from "@mui/material";
+import theme from "./theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Home />
+    <Router>
+      <Routes>
+        {/* <Route path="/" element={<HeroSection />} /> */}
+        <Route path="/" element={<Home />} />
+        <Route path="/add-order" element={<AddOrder />} />
+      </Routes>
+    </Router>
     </ThemeProvider>
   );
 }
 
 export default App;
+  
