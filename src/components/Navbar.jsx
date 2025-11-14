@@ -12,6 +12,10 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
+import ServiceIcon from "@mui/icons-material/Build";
+import InfoIcon from "@mui/icons-material/Info";
+import ContactsIcon from "@mui/icons-material/Contacts";
 import { useState } from "react";
 
 const navItems = ["Home", "Services", "About", "Contact"];
@@ -48,15 +52,19 @@ export default function Navbar() {
 
           {/* Mobile title */}
           <Typography
-            variant="h6"
-            sx={{
-              position: "absolute",
-              left: 16,
-              display: { xs: "block", md: "none" },
-            }}
-          >
-            LOMORA EVENTS
-          </Typography>
+          variant="h6"
+          sx={{
+            position: "absolute",
+            right: 16,
+            display: { xs: "block", md: "none" },
+            fontWeight: 500,
+            fontFamily: "Georgia, serif",
+            letterSpacing: 0.5,
+            color: "#ffffff"
+          }}
+        >
+          Lumora Events
+        </Typography>
 
           {/* Mobile menu icon */}
           <IconButton
@@ -65,7 +73,7 @@ export default function Navbar() {
             sx={{
               display: { xs: "block", md: "none" },
               position: "absolute",
-              right: 16,
+              left: 16,
             }}
             onClick={handleDrawerToggle}
           >
@@ -75,18 +83,72 @@ export default function Navbar() {
       </AppBar>
 
       {/* Drawer for mobile */}
-      <Drawer anchor="right" open={mobileOpen} onClose={handleDrawerToggle}>
+      <Drawer
+        anchor="left"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        PaperProps={{
+          sx: {
+            width: 260,
+            bgcolor: "#f5f5f5"
+          }
+        }}
+      >
         <Box
-          sx={{ width: 250 }}
-          role="presentation"
-          onClick={handleDrawerToggle}
-          onKeyDown={handleDrawerToggle}
+          sx={{
+            p: 2,
+            pt: 3
+          }}
         >
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 700,
+              letterSpacing: 0.5,
+              mb: 2,
+              textAlign: "center",
+              color: "#333"
+            }}
+          >
+            Menu
+          </Typography>
+
           <List>
-            {navItems.map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleScroll(text)}>
-                  <ListItemText primary={text} />
+            {navItems.map((text, index) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  mb: 1,
+                  borderRadius: 1
+                }}
+              >
+                <ListItemButton
+                  sx={{
+                    borderRadius: 1,
+                    py: 1.2,
+                    "&:hover": {
+                      bgcolor: "#e0e0e0"
+                    }
+                  }}
+                  onClick={() => handleScroll(text)}
+                >
+                  {/* Simple icons for each item */}
+                  <Box sx={{ mr: 2, color: "primary" }}>
+                    {index === 0 && <HomeIcon />}  
+                    {index === 1 && <ServiceIcon />}  
+                    {index === 2 && <InfoIcon />}  
+                    {index === 3 && <ContactsIcon />}  
+                  </Box>
+
+                  <ListItemText
+                    primary={text}
+                    primaryTypographyProps={{
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      color: "#333"
+                    }}
+                  />
                 </ListItemButton>
               </ListItem>
             ))}

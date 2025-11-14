@@ -54,7 +54,7 @@ export default function AboutUs() {
               organizes festivals, corporate functions, social gatherings, and entertainment programs,
                while also offering event equipment rentals. With a focus on professionalism, 
                creativity, and community connection, LUMORA aims to support small businesses, 
-               promote young talent, and strengthen the country’s entertainment industry.
+               promote young talent, and strengthen the country’s entertainment industry.wwwwzxadsdsssds
 
           </Typography>
 

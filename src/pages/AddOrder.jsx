@@ -29,6 +29,10 @@ export default function AddOrder() {
     { id: 2, name: "Table", price: 200 },
     { id: 3, name: "Tent", price: 1500 },
     { id: 4, name: "Sound System", price: 2500 },
+    { id: 5, name: "Chair", price: 50 },
+    { id: 6, name: "Table", price: 200 },
+    { id: 7, name: "Tent", price: 1500 },
+    { id: 8, name: "Sound System", price: 2500 },
   ]);
 
   const [selected, setSelected] = useState({});
@@ -59,104 +63,164 @@ export default function AddOrder() {
 
   return (
     <Box sx={{ 
-              minHeight: { xs: "70vh", md: "100vh" },
-              minWidth: {xs: "70vh", md: "197vh" },
+              minHeight: { xs: "100vh", md: "100vh" },
+              minWidth: {xs: "40vh", md: "197vh" },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               textAlign: "left",
-              // position: "relative",
-              bgcolor:"#fff",
-              color: "#fff",
               px: { xs: 3, md: 10 },
-                  // overflow: "hidden", 
-          
+              background: "linear-gradient(to right, #F9957F, #f2f5d0)"
           }}>
 
-      <Paper sx={{ p: 4,  boxShadow: 3,}}>
-        <Typography variant="h5" sx={{ mb: 3 }}>
+      <Paper sx={{ 
+        p: 4,  
+        boxShadow: 3,
+        width: { xs: "100%", md: "100vh" },
+        mb: 5,
+        bgcolor: "#1976D223",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 2
+       }}>
+        <Typography
+          variant="h4"
+          sx={{
+            mb: 1,
+            fontWeight: 700,
+            letterSpacing: 0.5,
+            color: "#1a1a1a",
+            textAlign: "center"
+          }}
+        >
           Add Order
         </Typography>
 
+
         {/* STEP 1: USER DETAILS */}
         {step === 1 && (
-          <Box sx={{
-                  // display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  // position: "relative",
-                  bgcolor: "red",
-                  color: "#fff",
-                  px: { xs: 3, sm: 6, md: 10 },
-                  overflow: "hidden",
-          }}>
-            <Typography variant="h6">User Details</Typography>
+        <Box
+          sx={{
+            maxWidth: { xs: "90%", md: 500 },
+            mx: "auto",
+            mt: { xs: 3, md: 0 },
+            p: { xs: 2, md: 4 },
+            bgcolor: "#F9F9F94D",
+            borderRadius: 2,
+            // boxShadow: 2,
+            textAlign: "center"
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              mb: { xs: 2, md: 3 },
+              color: "#333",
+              fontWeight: 600,
+              textAlign: "left"
+            }}
+          >
+            User Details
+          </Typography>
 
-            <Grid container spacing={2} sx={{ mt: 1 } }>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  fullWidth
-                  label="Full Name"
-                  name="name"
-                  value={user.name}
-                  onChange={handleUserChange}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Address"
-                  name="address"
-                  value={user.address}
-                  onChange={handleUserChange}
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  fullWidth
-                  label="ID Number"
-                  name="id"
-                  value={user.id}
-                  onChange={handleUserChange}
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Mobile Number"
-                  name="phone"
-                  value={user.phone}
-                  onChange={handleUserChange}
-                />
-              </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                label="Full Name"
+                name="name"
+                fullWidth
+                value={user.name}
+                onChange={handleUserChange}
+              />
             </Grid>
 
-            <Button
-              variant="contained"
-              sx={{ mt: 3 }}
-              disabled={!user.name || !user.address || !user.id || !user.phone}
-              onClick={() => setStep(2)}
-            >
-              Next
-            </Button>
-          </Box>
-        )}
+            <Grid item xs={12}>
+              <TextField
+                label="Address"
+                name="address"
+                fullWidth
+                value={user.address}
+                onChange={handleUserChange}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                label="ID Number"
+                name="id"
+                fullWidth
+                value={user.id}
+                onChange={handleUserChange}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                label="Mobile Number"
+                name="phone"
+                fullWidth
+                value={user.phone}
+                onChange={handleUserChange}
+              />
+            </Grid>
+          </Grid>
+
+          <Button
+            variant="contained"
+            sx={{
+              mt: { xs: 2, md: 4 },
+              py: { xs: 0.5, md: 1.2 },
+              width: "50%",
+              fontWeight: 600,
+              fontSize: { xs: "0.9rem", md: "1rem" }
+            }}
+            disabled={!user.name || !user.address || !user.id || !user.phone}
+            onClick={() => setStep(2)}
+          >
+            Next
+          </Button>
+        </Box>
+      )}
 
         {/* STEP 2: SELECT EQUIPMENT */}
         {step === 2 && (
-        <Box>
-          <Typography variant="h6">Select Equipment</Typography>
+        <Box
+          sx={{
+            maxWidth: { xs: "95%", md: 600 },
+            mx: "auto",
+            mt: { xs: 2, md: 0 },
+            p: { xs: 0, md: 4  },
+            // bgcolor: "#F9F9F94D",
+            borderRadius: 2,
+            textAlign: "center"
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              mb: { xs: 2, md: 3 },
+              fontWeight: 600,
+              color: "#333",
+              textAlign: "left",
+            }}
+          >
+            Select Equipment
+          </Typography>
 
-          <Table sx={{ mt: 2 }}>
+          <Table
+            sx={{
+              mt: { xs: 1, md: 2 },
+              "& th": { fontSize: { xs: "0.8rem", md: "1rem" } },
+              "& td": { fontSize: { xs: "0.8rem", md: "0.95rem" } }
+            }}
+          >
             <TableHead>
               <TableRow>
                 <TableCell><strong>Equipment</strong></TableCell>
                 <TableCell><strong>Price (Rs)</strong></TableCell>
-                <TableCell><strong>Quantity</strong></TableCell>
+                <TableCell><strong>Qty</strong></TableCell>
               </TableRow>
             </TableHead>
 
@@ -169,7 +233,10 @@ export default function AddOrder() {
                     <TextField
                       type="number"
                       size="small"
-                      sx={{ width: 100 }}
+                      sx={{
+                        width: { xs: 70, md: 100 },
+                        "& input": { textAlign: "center" }
+                      }}
                       value={selected[item.id] || ""}
                       onChange={e =>
                         handleQuantityChange(
@@ -184,11 +251,34 @@ export default function AddOrder() {
             </TableBody>
           </Table>
 
-          <Box sx={{ mt: 3, display: "flex", gap: 2 }}>
-            <Button variant="outlined" onClick={() => setStep(1)}>Back</Button>
+          <Box
+            sx={{
+              mt: { xs: 3, md: 4 },
+              alignItems: "center",
+              display: "flex",
+              flexDirection: { xs: "column", md: "column" },
+              gap: 2,
+              mt: { xs: 2, md: 4 },
+              py: { xs: 0.5, md: 1.2 },
+              width: { xs: 200,md:300git 
+              fontWeight: 600,
+              fontSize: { xs: "0.9rem", md: "1rem" }  
+            }}
+          >
+            <Button
+              variant="outlined"
+              sx={{ 
+                width: { xs: "100%", md: "auto" },
+                alignItems: "center"
+              }}
+              onClick={() => setStep(1)}
+            >
+              Back
+            </Button>
 
             <Button
               variant="contained"
+              sx={{ width: { xs: "100%", md: "auto" } }}
               disabled={billItems.length === 0}
               onClick={() => setStep(3)}
             >
@@ -201,50 +291,94 @@ export default function AddOrder() {
 
         {/* STEP 3: DATE SELECTION */}
         {step === 3 && (
-          <Box>
-            <Typography variant="h6">Select Dates</Typography>
+        <Box
+          sx={{
+            maxWidth: { xs: "95%", md: 500 },
+            mx: "auto",
+            mt: { xs: 3, md: 0 },
+            p: { xs: 2, md: 4 },
+            bgcolor: "#F9F9F94D",
+            borderRadius: 2,
+            textAlign: "center"
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              mb: { xs: 2, md: 3 },
+              fontWeight: 600,
+              color: "#333"
+            }}
+          >
+            Select Dates
+          </Typography>
 
-            <Grid container spacing={2} sx={{ mt: 1 }}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  type="date"
-                  label="Pickup Date"
-                  InputLabelProps={{ shrink: true }}
-                  name="pickup"
-                  fullWidth
-                  value={dates.pickup}
-                  onChange={handleDateChange}
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  type="date"
-                  label="Return Date"
-                  InputLabelProps={{ shrink: true }}
-                  name="return"
-                  fullWidth
-                  value={dates.return}
-                  onChange={handleDateChange}
-                />
-              </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                type="date"
+                label="Pickup Date"
+                InputLabelProps={{ shrink: true }}
+                name="pickup"
+                fullWidth
+                value={dates.pickup}
+                onChange={handleDateChange}
+                sx={{
+                  bgcolor: "#fff",
+                  borderRadius: 1
+                }}
+              />
             </Grid>
 
-            <Box sx={{ mt: 3, display: "flex", gap: 2 }}>
-              <Button variant="outlined" onClick={() => setStep(2)}>
-                Back
-              </Button>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                type="date"
+                label="Return Date"
+                InputLabelProps={{ shrink: true }}
+                name="return"
+                fullWidth
+                value={dates.return}
+                onChange={handleDateChange}
+                sx={{
+                  bgcolor: "#fff",
+                  borderRadius: 1
+                }}
+              />
+            </Grid>
+          </Grid>
 
-              <Button
-                variant="contained"
-                disabled={!dates.pickup || !dates.return}
-                onClick={() => setStep(4)}
-              >
-                Submit
-              </Button>
-            </Box>
+          <Box
+            sx={{
+              mt: { xs: 3, md: 4 },
+              display: "flex",
+              flexDirection: { xs: "column", md: "row" },
+              gap: 2
+            }}
+          >
+            <Button
+              variant="outlined"
+              sx={{
+                width: { xs: "100%", md: "auto" }
+              }}
+              onClick={() => setStep(2)}
+            >
+              Back
+            </Button>
+
+            <Button
+              variant="contained"
+              sx={{
+                width: { xs: "100%", md: "auto" }
+              }}
+              disabled={!dates.pickup || !dates.return}
+              onClick={() => setStep(4)}
+            >
+              Submit
+            </Button>
           </Box>
-        )}
+        </Box>
+      )}
+
 
         {/* STEP 4: FINAL BILL */}
         {step === 4 && (
